@@ -1,4 +1,4 @@
 import Transition from './transition'
-import Animate from './animate'
+import Like from './like'
 
-export { Transition, Animate }
+export { Transition, Like }

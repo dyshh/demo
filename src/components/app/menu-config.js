@@ -1,11 +1,10 @@
-import { Transition, Animate } from '../../components'
+import { Transition, Like } from '../../components'
 
 export const menus = [
     {
         pathname: '/',
         title: '首页',
-        exact: true,
-        component: Transition
+        exact: true
     },
     {
         pathname: '/transition',
@@ -13,8 +12,8 @@ export const menus = [
         component: Transition
     },
     {
-        pathname: '/animate',
-        title: '动画',
-        component: Animate
+        pathname: '/like',
+        title: 'Like',
+        component: Like
     }
 ]
