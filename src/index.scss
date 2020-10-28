@@ -1,0 +1,18 @@
+@import './var.scss';
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    color: $color-gray-1;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: $color-gray-1;
+}
