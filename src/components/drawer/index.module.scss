@@ -2,8 +2,7 @@
 
 .wrapper {
     height: 500px;
-    @include flexCenter;
-    justify-content: space-around;
+    justify-content: space-around !important;
 }
 
 .demo {

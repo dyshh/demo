@@ -1,19 +1,33 @@
-import { Transition, Like } from '../../components'
+import { Drawer, Like, LikePro } from '../../components'
 
 export const menus = [
     {
         pathname: '/',
-        title: '首页',
-        exact: true
+        title: '概述',
+        exact: true,
+        style: {
+            marginBottom: 10
+        }
     },
     {
-        pathname: '/transition',
-        title: '过渡',
-        component: Transition
+        title: '动画'
+    },
+    {
+        pathname: '/drawer',
+        title: '抽屉',
+        component: Drawer
     },
     {
         pathname: '/like',
         title: 'Like',
         component: Like
+    },
+    {
+        pathname: '/like-pro',
+        title: 'Like Pro',
+        component: LikePro
+    },
+    {
+        title: 'js'
     }
 ]
