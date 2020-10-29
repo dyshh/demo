@@ -36,6 +36,7 @@ function App() {
                                 exact={menu.exact}
                                 path={menu.pathname}
                                 component={menu.component}
+                                render={menu.render}
                             />
                         ))}
                 </Switch>

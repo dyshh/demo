@@ -7,6 +7,9 @@ export const menus = [
         exact: true,
         style: {
             marginBottom: 10
+        },
+        render: () => {
+            return <div>跑一些值得研究和记录的demo，供学习使用</div>
         }
     },
     {
@@ -26,8 +29,5 @@ export const menus = [
         pathname: '/like-pro',
         title: 'Like Pro',
         component: LikePro
-    },
-    {
-        title: 'js'
     }
 ]
