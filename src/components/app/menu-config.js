@@ -1,4 +1,4 @@
-import { Drawer, Like, LikePro, PubSub } from '../../components'
+import { Drawer, Like, LikePro, PubSub, TestMobx } from '../../components'
 
 export const menus = [
     {
@@ -37,5 +37,10 @@ export const menus = [
         pathname: '/pub-sub',
         title: '发布/订阅',
         component: PubSub
+    },
+    {
+        pathname: '/mobx',
+        title: 'Mobx Demo',
+        component: TestMobx
     }
 ]
