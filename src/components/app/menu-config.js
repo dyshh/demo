@@ -1,4 +1,4 @@
-import { Drawer, Like, LikePro, PubSub, TestMobx } from '../../components'
+import { Drawer, Like, LikePro, PubSub, TestMobx, TestSetState } from '../../components'
 
 export const menus = [
     {
@@ -42,5 +42,10 @@ export const menus = [
         pathname: '/mobx',
         title: 'Mobx Demo',
         component: TestMobx
+    },
+    {
+        pathname: '/test-set-state',
+        title: '测试setState同步异步',
+        component: TestSetState
     }
 ]
