@@ -1,4 +1,13 @@
-import { Drawer, Like, LikePro, PubSub, TestMobx, TestSetState } from '../../components'
+import {
+    Drawer,
+    Like,
+    LikePro,
+    PubSub,
+    TestMobx,
+    TestSetState,
+    ResponsiveLayout1,
+    ResponsiveLayout2
+} from '../../components'
 
 export const menus = [
     {
@@ -47,5 +56,15 @@ export const menus = [
         pathname: '/test-set-state',
         title: '测试setState同步异步',
         component: TestSetState
+    },
+    {
+        pathname: '/responsive-layout-js',
+        title: '响应式布局-js实现',
+        component: ResponsiveLayout1
+    },
+    {
+        pathname: '/responsive-layout-grid',
+        title: '响应式布局-grid实现',
+        component: ResponsiveLayout2
     }
 ]

@@ -9,6 +9,7 @@
         border-right: 1px solid #e6ecf1;
         padding-left: 24px;
         padding-top: 30px;
+        flex-shrink: 0;
         .item {
             transition: all 300ms;
             cursor: pointer;
