@@ -1,9 +1,10 @@
 .wrapper {
     display: grid !important;
     gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     padding: 0 10px;
     overflow: auto;
+    height: fit-content;
 }
 
 .item {

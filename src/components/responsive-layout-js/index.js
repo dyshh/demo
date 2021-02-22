@@ -7,7 +7,7 @@ const mockArr = Array.from(Array(50), (v, k) => k)
 export default function Layout() {
     const { width: clientWidth } = useWindowSize()
     const containerWidth = clientWidth - 225
-    const width = useAutoFix(containerWidth, 150, 20)
+    const width = useAutoFix(containerWidth, 120, 20)
     const height = 0.8 * width
     const style = {
         width: `${width}px`,
