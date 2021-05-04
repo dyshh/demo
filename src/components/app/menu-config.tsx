@@ -1,13 +1,4 @@
-import {
-    Drawer,
-    Like,
-    LikePro,
-    PubSub,
-    TestMobx,
-    TestSetState,
-    ResponsiveLayout1,
-    ResponsiveLayout2
-} from '../../components'
+import { Drawer, Like, LikePro, PubSub, TestMobx, TestSetState, ResponsiveLayout1, ResponsiveLayout2 } from '..'
 
 export const menus = [
     {

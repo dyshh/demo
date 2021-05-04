@@ -1,7 +1,7 @@
 import React from 'react'
-export default class Test extends React.Component {
-    constructor() {
-        super()
+export default class Test extends React.Component<{}, { num: number }> {
+    constructor(props: any) {
+        super(props)
         this.state = {
             num: 0
         }

@@ -20,7 +20,7 @@ function App() {
                             <Link to={pn}>{title}</Link>
                         </div>
                     ) : (
-                        <div style={{ style }} key={title} className={styles.classTitle}>
+                        <div style={{ ...style }} key={title} className={styles.classTitle}>
                             {title}
                         </div>
                     )
