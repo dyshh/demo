@@ -8,12 +8,12 @@ interface Query {
 
 // 翻页通用逻辑
 export const usePagination = ({
-    eleId,
+    wrapperRef,
     size = 10,
     fetchApi,
     dependence = []
 }: {
-    eleId: string
+    wrapperRef: React.MutableRefObject<HTMLElement | null>
     size?: number
     fetchApi: (query: Query) => Promise<[]>
     dependence?: any[]
@@ -38,7 +38,7 @@ export const usePagination = ({
     // 首次mount后触发数据请求
     useEffect(fetchAndSetQuery, dependence)
     // 滚动到底部触发数据请求
-    useBottom(eleId, fetchAndSetQuery)
+    useBottom(wrapperRef, fetchAndSetQuery)
 
     return [list]
 }

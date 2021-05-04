@@ -1,4 +1,14 @@
-import { Drawer, Like, LikePro, PubSub, TestMobx, TestSetState, ResponsiveLayout1, ResponsiveLayout2 } from '..'
+import {
+    Drawer,
+    Like,
+    LikePro,
+    PubSub,
+    TestMobx,
+    TestSetState,
+    ResponsiveLayout1,
+    ResponsiveLayout2,
+    ScrollToBottom
+} from '..'
 
 export const menus = [
     {
@@ -43,11 +53,13 @@ export const menus = [
         title: 'Mobx Demo',
         component: TestMobx
     },
+    { title: '测试' },
     {
         pathname: '/test-set-state',
         title: '测试setState同步异步',
         component: TestSetState
     },
+    { title: '布局' },
     {
         pathname: '/responsive-layout-js',
         title: '响应式布局-js实现',
@@ -57,5 +69,13 @@ export const menus = [
         pathname: '/responsive-layout-grid',
         title: '响应式布局-grid实现',
         component: ResponsiveLayout2
+    },
+    {
+        title: 'Hooks'
+    },
+    {
+        pathname: '/scroll-to-bottom',
+        title: '滚动翻页',
+        component: ScrollToBottom
     }
 ]
