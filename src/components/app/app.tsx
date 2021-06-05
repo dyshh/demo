@@ -13,14 +13,14 @@ function App() {
                 {menus.map(({ pathname: pn, title, style }) => {
                     return pn ? (
                         <div
-                            style={style}
+                            style={style ?? {}}
                             key={pn}
                             className={classnames(styles.item, pathname === pn && styles.active)}
                         >
                             <Link to={pn}>{title}</Link>
                         </div>
                     ) : (
-                        <div style={{ ...style }} key={title} className={styles.classTitle}>
+                        <div style={{ ...style }} key={title!} className={styles.classTitle}>
                             {title}
                         </div>
                     )
@@ -30,15 +30,9 @@ function App() {
                 <Switch>
                     {menus
                         .filter(menu => !!menu.pathname)
-                        .map(menu => (
-                            <Route
-                                key={menu.pathname || menu.title}
-                                exact={menu.exact}
-                                path={menu.pathname}
-                                component={menu.component}
-                                render={menu.render}
-                            />
-                        ))}
+                        .map(menu => {
+                            return <Route key={menu.title} path={menu.pathname!} {...menu} />
+                        })}
                 </Switch>
             </div>
         </div>

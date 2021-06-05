@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react'
-import EventEmiter from '../../js/event'
+import { EventEmitter } from '@pky/fe-utils'
 import styles from './index.module.scss'
 
 export default function Demo() {
-    const eventRef = useRef(new EventEmiter())
+    const eventRef = useRef(new EventEmitter())
 
     const [inputValue, setInputValue] = useState('')
     const [checkbox, setCheckbox] = useState(['red', 'blue'])

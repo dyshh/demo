@@ -1,16 +1,16 @@
-import {
-    Drawer,
-    Like,
-    LikePro,
-    PubSub,
-    TestMobx,
-    TestSetState,
-    ResponsiveLayout1,
-    ResponsiveLayout2,
-    ScrollToBottom
-} from '..'
+import { Drawer, Like, LikePro, PubSub, TestSetState, ResponsiveLayout1, ResponsiveLayout2, ScrollToBottom } from '..'
+import React from 'react'
 
-export const menus = [
+export interface Menu {
+    pathname?: string
+    title: string
+    exact?: boolean
+    style?: React.CSSProperties
+    render?: () => JSX.Element
+    component?: React.ComponentType
+}
+
+export const menus: Menu[] = [
     {
         pathname: '/',
         title: '概述',
@@ -47,11 +47,6 @@ export const menus = [
         pathname: '/pub-sub',
         title: '发布/订阅',
         component: PubSub
-    },
-    {
-        pathname: '/mobx',
-        title: 'Mobx Demo',
-        component: TestMobx
     },
     { title: '测试' },
     {

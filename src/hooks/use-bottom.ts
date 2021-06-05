@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { debounce } from '../js/debounce'
+import { debounce } from '@pky/fe-utils'
+
 // 滚动加载滚到底部翻页
 const useBottom = (domRef: React.MutableRefObject<HTMLElement | null>, action: () => void) => {
     useEffect(() => {
