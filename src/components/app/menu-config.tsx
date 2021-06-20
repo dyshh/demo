@@ -1,4 +1,14 @@
-import { Drawer, Like, LikePro, PubSub, TestSetState, ResponsiveLayout1, ResponsiveLayout2, ScrollToBottom } from '..'
+import {
+    Drawer,
+    Like,
+    LikePro,
+    PubSub,
+    TestSetState,
+    ResponsiveLayout1,
+    ResponsiveLayout2,
+    ScrollToBottom,
+    Carousel
+} from '..'
 import React from 'react'
 
 export interface Menu {
@@ -72,5 +82,10 @@ export const menus: Menu[] = [
         pathname: '/scroll-to-bottom',
         title: '滚动翻页',
         component: ScrollToBottom
+    },
+    {
+        pathname: '/carousel',
+        title: '轮播',
+        component: Carousel
     }
 ]

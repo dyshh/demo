@@ -2103,10 +2103,10 @@
   dependencies:
     mkdirp "^1.0.4"
 
-"@pky/fe-utils@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.nlark.com/@pky/fe-utils/download/@pky/fe-utils-0.1.7.tgz#60de3224cfd87c6e1933c492e490e0bd9ca37107"
-  integrity sha1-YN4yJM/YfG4ZM8SS5JDgvZyjcQc=
+"@pky/fe-utils@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.nlark.com/@pky/fe-utils/download/@pky/fe-utils-0.1.8.tgz#829ce522aa4b64495adff30c87b00abf228a02f0"
+  integrity sha1-gpzlIqpLZEla3/MMh7AKvyKKAvA=
 
 "@pmmmwh/react-refresh-webpack-plugin@0.4.3", "@pmmmwh/react-refresh-webpack-plugin@^0.4.3":
   version "0.4.3"
@@ -2438,6 +2438,11 @@
   version "0.0.29"
   resolved "https://registry.npm.taobao.org/@types/json5/download/@types/json5-0.0.29.tgz?cache=0&sync_timestamp=1596839392866&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjson5%2Fdownload%2F%40types%2Fjson5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
+
+"@types/lodash@^4.14.170":
+  version "4.14.170"
+  resolved "https://registry.nlark.com/@types/lodash/download/@types/lodash-4.14.170.tgz?cache=0&sync_timestamp=1621594787410&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Flodash%2Fdownload%2F%40types%2Flodash-4.14.170.tgz#0d67711d4bf7f4ca5147e9091b847479b87925d6"
+  integrity sha1-DWdxHUv39MpRR+kJG4R0ebh5JdY=
 
 "@types/minimatch@*":
   version "3.0.3"
@@ -7967,6 +7972,11 @@ lodash.uniq@^4.5.0:
   version "4.17.20"
   resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.20.tgz?cache=0&sync_timestamp=1597335994883&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.21.tgz?cache=0&sync_timestamp=1613837139739&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
 
 loglevel@^1.6.8:
   version "1.7.0"

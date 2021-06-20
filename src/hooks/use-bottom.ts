@@ -1,8 +1,13 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { debounce } from '@pky/fe-utils'
 
-// 滚动加载滚到底部翻页
-const useBottom = (domRef: React.MutableRefObject<HTMLElement | null>, action: () => void) => {
+/**
+ * 滚动到底部
+ * @param action 执行的函数
+ * @returns
+ */
+const useBottom = <T extends Element>(action: Function) => {
+    const containerRef = useRef<T>(null)
     useEffect(() => {
         function doInBottom(e: WheelEvent) {
             const { scrollTop, clientHeight, scrollHeight } = e.target as HTMLDivElement
@@ -13,14 +18,15 @@ const useBottom = (domRef: React.MutableRefObject<HTMLElement | null>, action: (
         const debounceDoInBottom = debounce((e: WheelEvent) => {
             doInBottom(e)
         }, 300)
-        const dom = domRef.current
+        const dom = containerRef.current
         if (dom) {
             dom.addEventListener('scroll', debounceDoInBottom)
             return () => {
-                dom?.removeEventListener('scroll', debounceDoInBottom)
+                dom.removeEventListener('scroll', debounceDoInBottom)
             }
         }
-    }, [action, domRef])
+    }, [action])
+    return containerRef
 }
 
 export default useBottom
