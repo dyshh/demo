@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Carousel1 from './demo1'
-import Carousel2 from './demo2'
+// import Carousel2 from './demo2'
 
 const stockList = [
     {
@@ -24,13 +24,13 @@ export type List = typeof stockList
 export default function Wrapper() {
     const [isRun, setIsRun] = useState(false)
     const [list1, setList1] = useState(stockList)
-    const [list2, setList2] = useState(stockList)
+    // const [list2, setList2] = useState(stockList)
     function updateList1(newList: typeof stockList) {
         setList1(newList)
     }
-    function updateList2(newList: typeof stockList) {
-        setList2(newList)
-    }
+    // function updateList2(newList: typeof stockList) {
+    //     setList2(newList)
+    // }
     return (
         <div style={{ display: 'flex', flexDirection: 'column' }}>
             <Carousel1 isRun={isRun} list={list1} updateList={updateList1} />
