@@ -4,13 +4,15 @@ import ThumbImg from './like-thumb.png'
 import Animate from './bezier-animate'
 
 export default function LikePro() {
-    const animateIns = useRef(null)
-    const bezierBox = useRef(null)
+    const animateIns = useRef<InstanceType<typeof Animate>>()
+    const bezierBox = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        animateIns.current = new Animate({
-            box: bezierBox.current
-        })
+        if (bezierBox.current) {
+            animateIns.current = new Animate({
+                box: bezierBox.current
+            })
+        }
     }, [])
 
     return (
@@ -18,11 +20,13 @@ export default function LikePro() {
             <div className={styles.box} ref={bezierBox}>
                 <img
                     onClick={() => {
-                        if (!animateIns.current.isPlaying) {
-                            animateIns.current.batchCreate(div => {
+                        if (!animateIns.current?.isPlaying) {
+                            const cb = div => {
                                 div.style.backgroundImage = `url(${ThumbImg})`
                                 div.style.backgroundSize = 'cover'
-                            })
+                            }
+                            animateIns.current?.create(cb)
+                            // animateIns.current?.batchCreate(cb)
                         }
                     }}
                     src={ThumbImg}

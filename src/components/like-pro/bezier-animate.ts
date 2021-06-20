@@ -1,10 +1,12 @@
 const speedRatio = 5 // 速度系数
 
+type Point = [number, number]
+
 /**
  * 生成贝塞尔曲线动画
  */
 export default class Animate {
-    box = null
+    box: HTMLDivElement
     boxWidth = 0
     boxHeight = 0
     width = 0
@@ -13,7 +15,7 @@ export default class Animate {
     duration = 1000 / 60
     isPlaying = false // 动画是否播放中
 
-    constructor(option) {
+    constructor(option: { box: HTMLDivElement; width?: number; height?: number }) {
         this.box = option.box
         this.boxWidth = this.box.offsetWidth
         this.boxHeight = this.box.offsetHeight
@@ -23,14 +25,14 @@ export default class Animate {
     }
 
     // 创建三阶贝塞尔曲线的四个点坐标
-    getBezierLine(p0) {
+    getBezierLine(p0: Point) {
         const p1x = this.checkXBorder(this.getRandom(0, this.boxWidth))
         const p1y = this.boxHeight / 2
-        const p1 = [p1x, p1y]
+        const p1: Point = [p1x, p1y]
         const p2x = this.checkXBorder(this.getRandom(0, this.boxWidth))
         const p2y = this.boxHeight / 4
-        const p2 = [p2x, p2y]
-        const p3 = [this.getRandom(0, this.boxWidth - this.width), 0]
+        const p2: Point = [p2x, p2y]
+        const p3: Point = [this.getRandom(0, this.boxWidth - this.width), 0]
         return { p0, p1, p2, p3 }
     }
 
@@ -38,7 +40,7 @@ export default class Animate {
      * 三阶贝塞额曲线公式
      * p0, p1, p2, p3 分别是四个点坐标
      */
-    threeBezier(t, p0, p1, p2, p3) {
+    threeBezier(t: number, p0: Point, p1: Point, p2: Point, p3: Point): Point {
         const [x0, y0] = p0
         const [x1, y1] = p1
         const [x2, y2] = p2
@@ -53,13 +55,12 @@ export default class Animate {
             3 * y1 * t * (1 - t) * (1 - t) +
             3 * y2 * t * t * (1 - t) +
             y3 * t * t * t
-
         return [x, y]
     }
 
     // 获取贝塞尔曲线的坐标点
-    getBezierPoints(t, p0, p1, p2, p3) {
-        const points = []
+    getBezierPoints(t: number, p0: Point, p1: Point, p2: Point, p3: Point) {
+        const points: Point[] = []
         for (let i = 0; i < t; i++) {
             points.push(this.threeBezier(i / t, p0, p1, p2, p3))
         }
@@ -68,7 +69,7 @@ export default class Animate {
     }
 
     // 检查并纠正x值
-    checkXBorder(x) {
+    checkXBorder(x: number) {
         if (x < 0) {
             x = 0
         } else if (x > this.boxWidth - this.width) {
@@ -78,7 +79,7 @@ export default class Animate {
     }
 
     // 获取一个区间的随机数
-    getRandom(m, n) {
+    getRandom(m: number, n: number) {
         return Math.floor(Math.random() * (m - n) + n)
     }
 
@@ -88,9 +89,9 @@ export default class Animate {
     }
 
     // 使用requestAnimationFrame播放更流畅，不掉帧
-    play(points = [], cb) {
+    play(points: Point[] = [], cb: (p?: Point, count?: number) => void) {
         let count = 0
-        let id
+        let id: number
         const start = () => {
             count += this.duration
             points.length && cb(points.shift(), count)
@@ -106,7 +107,7 @@ export default class Animate {
     }
 
     // 每一帧的动画逻辑
-    playAnimationAtOneFrame(points, div) {
+    playAnimationAtOneFrame(points: Point[], div: HTMLDivElement) {
         this.play(points, (p, s) => {
             // 动画结束移除dom
             if (!p) {
@@ -121,10 +122,12 @@ export default class Animate {
             const fadeInPeriod = wholeDuration * 0.2
             const fadeOutPeriod = wholeDuration * 0.8
             const opacityStep = period => 1 / Math.floor(period / this.duration)
-            if (s < fadeInPeriod) {
-                div.style.opacity = `${+div.style.opacity + opacityStep(fadeInPeriod)}`
-            } else if (s > fadeOutPeriod) {
-                div.style.opacity = `${+div.style.opacity - opacityStep(fadeOutPeriod)}`
+            if (s) {
+                if (s < fadeInPeriod) {
+                    div.style.opacity = `${+div.style.opacity + opacityStep(fadeInPeriod)}`
+                } else if (s > fadeOutPeriod) {
+                    div.style.opacity = `${+div.style.opacity - opacityStep(fadeOutPeriod)}`
+                }
             }
         })
     }
@@ -147,6 +150,7 @@ export default class Animate {
         const line = this.getBezierLine([originLeft, originTop])
         // 获取一连串贝塞尔曲线坐标点
         const points = this.getBezierPoints(this.pointsNum, line.p0, line.p1, line.p2, line.p3)
+        console.log(points)
         // 根据坐标点改变元素位置
         this.playAnimationAtOneFrame(points, div)
     }
